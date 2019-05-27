@@ -1,0 +1,19 @@
+# Use default setting for mysqld processes
+!include default_mysqld.cnf
+!include default_client.cnf
+
+[mysqld]
+basedir = /usr/local/mysqld/mysql
+datadir = /usr/local/mysqld/data
+tmpdir = /usr/local/mysqld/tmp
+socket = /usr/local/mysqld/tmp/mysql.sock
+pid_file = /usr/local/mysqld/tmp/mysqld.pid
+log_error = /usr/local/mysqld/log/mysql_error.log
+slow_query_log_file = /usr/local/mysqld/log/slow_warn.log
+
+server_id = 3
+user = mysql
+port = 3306
+bind-address = 0.0.0.0
+character-set-server = utf8
+default_storage_engine = InnoDB
