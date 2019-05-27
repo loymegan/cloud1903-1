@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#
+# author: liuchao
+# email: bavduer@163.com
+# date: 2019/05/27
+# usage: backup file or directory.
+
+
+#cp -r file01 file01.bak
+#bak -b filename
+#/filename /filename.bak
+
+#$1 = 第一个位置参数
+#$2 = 第二个位置参数
+
+if [ "$1" == "-h" ];then
+	echo "-b	help info: 保留原文件, 生成新的备份文件."
+	echo "-d	help info: 不保留原文件, 生成新的备份文件."
+	echo "-h  	help info: 打印帮助信息."
+else
+	if [ "$1" == "-b" ];then
+	  cp -rf $2 $2.bak
+        elif [ "$1" == "-d" ];then
+	  mv $2 $2.bak
+        else
+          echo "[ERROR]: help to 'bak -h'."
+	fi
+fi
+
+
+
+
+
+
+
+
+
+
