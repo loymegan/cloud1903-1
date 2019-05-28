@@ -27,12 +27,17 @@ fi
 }
 
 Php_install() {
-  rpm -qa | grep php-fpm
-  if [ $? -eq 0 ];then
-    echo "php-fpm installed."
-  else
-    yum -y install php php-fpm php-mysql php-gd php-mbstring php-mcrypt php-devel php-curl
-  fi
+  phpgroup=("php" "php-fpm" "php-mysql" "php-gd" "php-mbstring" "php-mcrypt" "php-devel" "php-curl")
+  phpgrouplen=${#phpgroup[*]}
+  for index in `seq 0 $((phpgrouplen-1))`
+  do
+    rpm -qa | grep ${phpgroup[$index]} &>/dev/null
+    if [ $? -eq 0 ];then
+      echo "${phpgroup[$index]} installed."
+    else
+      yum -y install ${phpgroup[$index]}
+    fi
+  done
 }
 
 while :
