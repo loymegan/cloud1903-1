@@ -1,0 +1,13 @@
+Sed is a stream editor, which is a very useful tool for text processing. It works perfectly
+
+with regular expressions and functions very well. what processing, the currently processed 
+
+line is stored in a temporary buffer, called "pattern space", and then the sed command is used to process the contents of the buffer. After the processing is completed, the contents 
+
+of the buffer are sent to the screen. Then process the next line, so repeat it until the end
+
+of the file. The file content has not changed unless you use a redirect to store the output.
+
+Sed is mainly used to automatically edit one or more files, simplify the repeated operation
+
+of files, write conversion programs, etc.
